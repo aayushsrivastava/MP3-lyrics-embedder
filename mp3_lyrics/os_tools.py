@@ -1,4 +1,5 @@
 import os
+import shutil
 
 def find_mp3_files(directory):
     files = []
@@ -9,3 +10,6 @@ def find_mp3_files(directory):
     
     files.sort()
     return files
+
+def copy_directory(in_dir, out_dir):
+    shutil.copytree(in_dir, out_dir)
