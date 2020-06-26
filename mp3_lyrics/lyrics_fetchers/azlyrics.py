@@ -1,4 +1,4 @@
-import requests
+import web_tools
 from bs4 import BeautifulSoup
 import re
 
@@ -20,13 +20,7 @@ def get_webpage(band_name, song_name):
     band_name, song_name = format_names(band_name, song_name)
     url = 'https://www.azlyrics.com/lyrics/' + band_name + '/' + song_name + '.html'
 
-    try:
-        response = requests.get(url)
-        html_doc = response.text
-        return html_doc
-    except Exception as e:
-        print("Error: ", e)
-        return e
+    return web_tools.get_webpage(url)
 
 def extract_lyrics(html_doc):
     soup = BeautifulSoup(html_doc, 'html.parser')
