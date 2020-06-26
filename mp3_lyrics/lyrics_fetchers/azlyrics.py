@@ -1,4 +1,4 @@
-import web_tools
+from . import web_tools
 from bs4 import BeautifulSoup
 import re
 
@@ -28,7 +28,7 @@ def extract_lyrics(html_doc):
         div = soup.find("div", {'class': 'ringtone'}).parent.find_all('div')[5]
         return div.get_text().strip()
     except Exception as e:
-        print("Error while trying to parse text from HTML")
+        # Error while trying to parse text from HTML
         raise e
 
 def get_lyrics(band_name, song_name):
